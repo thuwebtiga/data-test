@@ -1,0 +1,1424 @@
+{
+"openapi": "3.0.0",
+"paths": {
+"/work-flow/get": {
+"get": {
+"operationId": "KestraWrappersController_getExecution",
+"parameters": [
+{
+"name": "executionId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/workflows/{id}": {
+"get": {
+"operationId": "KestraWrappersController_get",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/KestraData"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"put": {
+"operationId": "KestraWrappersController_update",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/TypeOrmUpdateResponse"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"delete": {
+"operationId": "KestraWrappersController_remove",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/workflows": {
+"get": {
+"operationId": "KestraWrappersController_findAll",
+"parameters": [
+{
+"name": "filter",
+"required": true,
+"in": "query",
+"description": "An object condition to search/filter",
+"example": "{\"skip\": 0, \"take\": 10,\"sort\":\"createdAt:DESC\"}",
+"schema": {}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/components/schemas/KestraData"
+}
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/create-v2": {
+"post": {
+"operationId": "KestraWrappersController_createV2",
+"parameters": [],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/KestraLog"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/execute": {
+"post": {
+"operationId": "KestraWrappersController_execute",
+"parameters": [
+{
+"name": "x-session-id",
+"required": true,
+"in": "header",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/execute-v2": {
+"post": {
+"operationId": "KestraWrappersController_executeAndGet",
+"parameters": [
+{
+"name": "x-session-id",
+"required": true,
+"in": "header",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/executions": {
+"get": {
+"operationId": "KestraWrappersController_getAllExecutionOfWorkFlow",
+"parameters": [
+{
+"name": "kestraDataId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "page",
+"required": true,
+"in": "query",
+"schema": {
+"type": "number"
+}
+},
+{
+"name": "size",
+"required": true,
+"in": "query",
+"schema": {
+"type": "number"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/execution/overview": {
+"get": {
+"operationId": "KestraWrappersController_getExecutionOverview",
+"parameters": [
+{
+"name": "executionId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/execution/search": {
+"get": {
+"operationId": "KestraWrappersController_searchExecution",
+"parameters": [
+{
+"name": "executionId",
+"required": false,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "kestraDataId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "sort",
+"required": false,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "size",
+"required": true,
+"in": "query",
+"schema": {
+"type": "number"
+}
+},
+{
+"name": "page",
+"required": true,
+"in": "query",
+"schema": {
+"type": "number"
+}
+},
+{
+"name": "timeRange",
+"required": false,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "state",
+"required": false,
+"in": "query",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/execution/gantt": {
+"get": {
+"operationId": "KestraWrappersController_getExecutionGantt",
+"parameters": [
+{
+"name": "executionId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "param",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/session/{id}": {
+"get": {
+"operationId": "KestraWrappersController_getUserSession",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"put": {
+"operationId": "KestraWrappersController_updateSession",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/avatar/{id}": {
+"get": {
+"operationId": "KestraWrappersController_getAvatar",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "type",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/instances": {
+"post": {
+"operationId": "KestraWrappersController_createKestraInstance",
+"parameters": [],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/KestraInstance"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"delete": {
+"operationId": "KestraWrappersController_removeInstanceByOrgId",
+"parameters": [
+{
+"name": "organizationId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"get": {
+"operationId": "KestraWrappersController_findAllKestraInstance",
+"parameters": [
+{
+"name": "filter",
+"required": true,
+"in": "query",
+"description": "An object condition to search/filter",
+"example": "{\"skip\": 0, \"take\": 10,\"sort\":\"createdAt:DESC\"}",
+"schema": {}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/components/schemas/KestraInstance"
+}
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/instances/{id}": {
+"put": {
+"operationId": "KestraWrappersController_updateKestraInstance",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/TypeOrmUpdateResponse"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"delete": {
+"operationId": "KestraWrappersController_removeInstance",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/revisions": {
+"get": {
+"operationId": "KestraWrappersController_getRevisionsOfWorkflow",
+"parameters": [
+{
+"name": "kestraDataId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/templates": {
+"post": {
+"operationId": "KestraWrappersController_createKestraTemplate",
+"parameters": [],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/templates/{id}": {
+"put": {
+"operationId": "KestraWrappersController_updateTemplate",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/TypeOrmUpdateResponse"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"delete": {
+"operationId": "KestraWrappersController_removeTemplate",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+},
+"get": {
+"operationId": "KestraWrappersController_getTemplate",
+"parameters": [
+{
+"name": "id",
+"required": true,
+"in": "path",
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/KestraTemplate"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+},
+"/work-flow/templates/search": {
+"get": {
+"operationId": "KestraWrappersController_searchTemplate",
+"parameters": [
+{
+"name": "templateId",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "sort",
+"required": true,
+"in": "query",
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "size",
+"required": true,
+"in": "query",
+"schema": {
+"type": "number"
+}
+},
+{
+"name": "page",
+"required": true,
+"in": "query",
+"schema": {
+"type": "number"
+}
+}
+],
+"responses": {
+"200": {
+"description": "",
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/"
+}
+}
+}
+}
+},
+"tags": [
+"Kestra Wrapper"
+],
+"security": [
+{
+"token": []
+}
+]
+}
+}
+},
+"info": {
+"title": "Kestra Wrapper Service",
+"description": "The api service for Kestra Wrapper Service",
+"version": "1.0",
+"contact": {}
+},
+"tags": [],
+"servers": [],
+"components": {
+"securitySchemes": {
+"token": {
+"scheme": "bearer",
+"bearerFormat": "JWT",
+"type": "http"
+}
+},
+"schemas": {
+"": {
+"type": "object",
+"properties": {}
+},
+"KestraData": {
+"type": "object",
+"properties": {
+"createdAt": {
+"example": "2024-07-07T09:22:23.314Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedAt": {
+"example": "2024-07-07T09:22:23.315Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"createdBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"id": {
+"description": "Identify Id of this record",
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"workFlow": {
+"example": "botType",
+"description": "The name of workflow",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"namespace": {
+"example": "webtiga",
+"description": "The namespace",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"data": {
+"example": "",
+"description": "Data of workflow",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"organizationId": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"description": "organizationId",
+"maxLength": 250,
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+}
+},
+"required": [
+"createdAt",
+"updatedAt",
+"createdBy",
+"updatedBy",
+"id",
+"workFlow",
+"namespace",
+"organizationId"
+]
+},
+"TypeOrmUpdateResponse": {
+"type": "object",
+"properties": {
+"raw": {
+"type": "object"
+},
+"affected": {
+"type": "number",
+"example": 0
+},
+"generatedMaps": {
+"example": [],
+"type": "array",
+"items": {
+"type": "string"
+}
+}
+},
+"required": [
+"raw",
+"affected",
+"generatedMaps"
+]
+},
+"KestraLog": {
+"type": "object",
+"properties": {
+"createdAt": {
+"example": "2024-07-07T09:22:23.314Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedAt": {
+"example": "2024-07-07T09:22:23.315Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"createdBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"id": {
+"description": "Identify Id of this record",
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"workFlow": {
+"example": "botType",
+"description": "The name of workflow",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"namespace": {
+"example": "webtiga",
+"description": "The namespace",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"action": {
+"example": "create",
+"description": "Action of user with workflow",
+"maxLength": 250,
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"data": {
+"example": "",
+"description": "Data of workflow",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"isSuccess": {
+"example": "true",
+"description": "Result of action with kestra",
+"default": true,
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"organizationId": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"description": "organizationId",
+"maxLength": 250,
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"kestraDataId": {
+"description": "Identify id of kestra data",
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+}
+},
+"required": [
+"createdAt",
+"updatedAt",
+"createdBy",
+"updatedBy",
+"id",
+"workFlow",
+"namespace",
+"action",
+"isSuccess",
+"organizationId",
+"kestraDataId"
+]
+},
+"KestraInstance": {
+"type": "object",
+"properties": {
+"createdAt": {
+"example": "2024-07-07T09:22:23.314Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedAt": {
+"example": "2024-07-07T09:22:23.315Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"createdBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"id": {
+"description": "Identify Id of this record",
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"url": {
+"example": "botType",
+"description": "The name of workflow",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"authorization": {
+"example": "webtiga",
+"description": "The namespace",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"organizationId": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"description": "organizationId",
+"maxLength": 250,
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+}
+},
+"required": [
+"createdAt",
+"updatedAt",
+"createdBy",
+"updatedBy",
+"id",
+"url",
+"authorization",
+"organizationId"
+]
+},
+"KestraTemplate": {
+"type": "object",
+"properties": {
+"createdAt": {
+"example": "2024-07-07T09:22:23.314Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedAt": {
+"example": "2024-07-07T09:22:23.315Z",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"createdBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"updatedBy": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"id": {
+"description": "Identify Id of this record",
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"workFlow": {
+"example": "botType",
+"description": "The name of workflow",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"namespace": {
+"example": "webtiga",
+"description": "The namespace",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"data": {
+"example": "",
+"description": "Data of workflow",
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+},
+"organizationId": {
+"example": "df795f2f-c034-4b67-a1c2-87d49f7a5034",
+"description": "organizationId",
+"maxLength": 250,
+"allOf": [
+{
+"$ref": "#/components/schemas/"
+}
+]
+}
+},
+"required": [
+"createdAt",
+"updatedAt",
+"createdBy",
+"updatedBy",
+"id",
+"workFlow",
+"namespace",
+"organizationId"
+]
+}
+}
+}
+}
