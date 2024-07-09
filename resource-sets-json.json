@@ -1,0 +1,27 @@
+[
+    {
+        "name": "qa-mock-list",
+        "urn": "kestra-list",
+        "displayName": "kestra List"
+    },
+    {
+        "name": "qa-mock-read",
+        "urn": "kestra-read",
+        "displayName": "kestra Read"
+    },
+    {
+        "name": "qa-mock-create",
+        "urn": "kestra-create",
+        "displayName": "kestra Create"
+    },
+    {
+        "name": "qa-mock-update",
+        "urn": "kestra-update",
+        "displayName": "kestra Update"
+    },
+    {
+        "name": "qa-mock-delete",
+        "urn": "kestra-delete",
+        "displayName": "kestra Delete"
+    }
+]
